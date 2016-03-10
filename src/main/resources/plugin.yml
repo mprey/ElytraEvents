@@ -1,0 +1,5 @@
+name: ElytraEvents
+author: [mprey]
+version: 1.0
+main: me.mprey.ee.Main
+description: Add an API for the elytra
