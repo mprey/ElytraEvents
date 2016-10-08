@@ -1,32 +1,31 @@
 package me.mprey.ee.listener;
 
-import me.mprey.ee.Main;
-import me.mprey.ee.events.PlayerElytraDisableEvent;
-import me.mprey.ee.events.PlayerElytraEnableEvent;
-import me.mprey.ee.events.PlayerElytraFlyEvent;
 import net.minecraft.server.v1_9_R1.EntityPlayer;
+
 import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
-import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import me.mprey.ee.events.PlayerElytraDisableEvent;
+import me.mprey.ee.events.PlayerElytraEnableEvent;
+import me.mprey.ee.events.PlayerElytraFlyEvent;
 
 /**
  * Created by Mason Prey on 3/9/16.
  */
 public class PlayerListener implements Listener {
 
-    private List<UUID> flyingList;
-
     private static final int ELYTRA_FLAG = 7;
+    private List<UUID> flyingList;
+    private JavaPlugin instance;
 
-    private Main instance;
-
-    public PlayerListener(Main instance) {
+    public PlayerListener(JavaPlugin instance) {
         instance.getServer().getPluginManager().registerEvents(this, instance);
         this.flyingList = new ArrayList<>();
         this.instance = instance;
